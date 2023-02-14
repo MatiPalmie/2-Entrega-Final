@@ -38,6 +38,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/',productsRoutes)
-
+app.use('/',cartRoutes)
 
 app.listen(PORT, () => console.log(`Server Runing on Port ${PORT}`));

@@ -1,11 +1,15 @@
 import { productModel } from "../../models/products.models.js";
 
+
 class ProductDao {
   async addProduct(data) {
     return await productModel.create(data);
   }
-  async getProducts() {
-    return await productModel.find();
+  async getProducts(query, sort, page, limit) {
+    return await productModel.paginate(
+      { query },
+      { sort: { price: sort }, page: page || 1, limit: limit || 10 }
+    );
   }
   async getProductById(id) {
     return await productModel.findById(id);
@@ -19,4 +23,4 @@ class ProductDao {
 }
 
 const productDao = new ProductDao();
-export default productDao
+export default productDao;

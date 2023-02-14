@@ -1,0 +1,22 @@
+<h1>Productos hasta el momento</h1>
+
+{{#each productList.docs}}
+<ul>
+    <li>Product:{{this.product}}</li>
+    <li>Description:{{this.description}}</li>
+    <li>Price:{{this.price}}</li>
+    <li>Stock:{{this.stock}}</li>
+</ul>
+{{else}}
+<h2>No hay productos</h2>
+{{/each}}
+<div>
+        <a href="/products?page={{productList.prevPage}}&&limit=">Prev</a>
+        <a href="/products?page={{productList.nextPage}}">Next</a>
+    </div>
+
+    <h5>
+      {{ productList.page }} / {{ productList.totalPages }}
+    </h5>
+</div>
+
